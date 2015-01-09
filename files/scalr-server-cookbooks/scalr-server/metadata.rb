@@ -2,8 +2,8 @@ name             'scalr-server'
 maintainer       'Thomas Orozco'
 maintainer_email 'thomas@scalr.com'
 license          'Apache License 2.0'
-description      'Installs/Configures Scalr Core'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+description      'Configures Scalr Server'
+long_description 'Configures Scalr Server'
 version          '7.9.3'
 
 %w{ ubuntu centos redhat }.each do |os|
