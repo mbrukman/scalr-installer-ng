@@ -6,4 +6,4 @@ echo "Installing"
 /prepare_test.sh
 
 echo "Configuring"
-/opt/scalr-server/bin/scalr-server-ctl-reconfigure
+/opt/scalr-server/bin/scalr-server-ctl reconfigure
