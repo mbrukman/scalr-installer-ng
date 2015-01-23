@@ -2,4 +2,4 @@
 set -o errexit
 set -o nounset
 
-dpkg -i "${OMNIBUS_PACKAGE_DIR}"
+yum install "${OMNIBUS_PACKAGE_DIR}"
