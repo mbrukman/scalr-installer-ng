@@ -2,4 +2,8 @@
 set -o errexit
 set -o nounset
 
-/local_build_scripts/prepare_test.sh
+echo "Installing"
+/prepare_test.sh
+
+echo "Configuring"
+/opt/scalr-server/bin/scalr-server-ctl-reconfigure
