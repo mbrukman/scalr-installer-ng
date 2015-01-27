@@ -62,7 +62,7 @@ enabled_services(node).each do |svc|
     stderr_logfile  "#{log_dir_for node, 'supervisor'}/#{name}.err"
     action          [:enable, :start]
     autostart       true
-    subscribes      :restart, 'template[scalr_config]' if should_notify
+    subscribes      :restart, 'file[scalr_config]' if should_notify
     subscribes      :restart, 'file[scalr_cryptokey]' if should_notify
     subscribes      :restart, 'file[scalr_id]' if should_notify
   end
