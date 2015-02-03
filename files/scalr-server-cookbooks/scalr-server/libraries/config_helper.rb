@@ -44,15 +44,21 @@ module Scalr
 
         def dump_scalr_configuration(node)
 
-            scalr_conn_details = mysql_base_params(node).merge({
-                                                                   :user => node[:scalr_server][:mysql][:scalr_user],
-                                                                   :pass => node[:scalr_server][:mysql][:scalr_password],
-                                                                   :name => node[:scalr_server][:mysql][:scalr_dbname],
-                                                               })
-            analytics_conn_details = scalr_conn_details.merge({
-                                                                  :name => node[:scalr_server][:mysql][:analytics_dbname],
-                                                              })
+            scalr_conn_details = mysql_scalr_params(node).merge({
+                :user => node[:scalr_server][:mysql][:scalr_user],
+                :pass => node[:scalr_server][:mysql][:scalr_password],
+                :name => node[:scalr_server][:mysql][:scalr_dbname],
+            })
+            scalr_conn_details.delete(:username)
+            scalr_conn_details.delete(:password)
 
+            analytics_conn_details = mysql_analytics_params(node).merge({
+                :user => node[:scalr_server][:mysql][:scalr_user],
+                :pass => node[:scalr_server][:mysql][:scalr_password],
+                :name => node[:scalr_server][:mysql][:analytics_dbname],
+            })
+            analytics_conn_details.delete(:username)
+            analytics_conn_details.delete(:password)
 
             # Actual configuration generated here.
             config = {
