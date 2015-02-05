@@ -66,5 +66,6 @@ enabled_services(node).each do |svc|
     subscribes      :restart, 'file[scalr_code]' if should_restart
     subscribes      :restart, 'file[scalr_cryptokey]' if should_restart
     subscribes      :restart, 'file[scalr_id]' if should_restart
+    subscribes      :restart, 'user[scalr_user]' if should_restart
   end
 end
