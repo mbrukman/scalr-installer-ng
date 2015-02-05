@@ -8,7 +8,7 @@ describe Scalr::ServiceHelper do
     it 'should return the right services' do
       node.set[:scalr_server][:service][:enable] = true
 
-      enabled_services = dummy_class.new.enabled_services(node).collect {|service| service[:service_name]}
+      enabled_services = dummy_class.new.enabled_services(node).collect {|service| service[:name]}
       expect(enabled_services).to eq(%w{msgsender dbqueue plotter poller szrupdater analytics_poller analytics_processor})
     end
 
